@@ -1,0 +1,85 @@
+html{
+    height: 70vh;
+}
+
+.hide{
+    display: none;
+}
+.startScreen{
+    text-align: center;
+    margin: auto;
+    padding: 5px;;
+    border: 1px solid red;
+    border-radius: 1rem;
+}
+.car {
+    position:absolute;
+    bottom:100px;
+    width:65px;
+    height:120px;
+    margin: 25px;
+    background-image: url(the-car.png);
+    background-size: cover;
+    border-radius: 1.7rem;
+    border: solid cyan;
+}
+.enemy{
+    position:absolute;
+    bottom:100px;
+    width:65px;
+    height:120px;
+    margin: auto;
+    background-image: url(enemy\ car.png);
+    background-size: cover;
+    margin-top: 4px;
+    border-radius: 1rem;
+    
+
+}
+
+.gameAreaHide {
+    width: 350px;
+    height:95vh;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    background-color: black;
+    border: solid green;
+    border-width: 35px;
+    border-bottom: none;
+    border-top: none;
+
+}
+.line{
+    position:absolute;
+    bottom:100px;
+    margin-left: 160px;
+    width:20px;
+    height:160px;
+    background-color: aliceblue;
+
+}
+.score{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 200%;
+  background-color: black;
+  height: 80px;
+  text-align: center;
+  color: aliceblue;
+  border: solid wheat;  
+  border-radius: 1.5rem;
+  left: 180px;
+}
+
+.power {
+    position:absolute;
+    bottom:100px;
+    width:65px;
+    height:65px;
+    margin: auto;
+    background-image: url(powerup.png);
+    background-size: cover;
+    margin-top: 4px;
+    border-radius: 2rem;
+    border: wheat solid;
+}
