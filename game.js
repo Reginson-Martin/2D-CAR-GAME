@@ -25,6 +25,7 @@ function iscollide(a, b) {
     (aRect.left > bRect.right)
   )
 }
+// FUNCTION to animate the road dividers
 
 function moveLines() {
   let lines = document.querySelectorAll(".line");
@@ -37,6 +38,8 @@ function moveLines() {
   });
 
 }
+
+// FUNCTION to animate enemy car
 
 function moveEnemy(car) {
   let ele = document.querySelectorAll(".enemy");
@@ -56,6 +59,8 @@ function moveEnemy(car) {
 
 }
 
+//BONUS power up for the game to speed up
+
 function renderPowerUp() {
   const powerUpTimeArr = [2000, 4300];
   if (powerUpTimeArr.includes(player.score)) {
@@ -67,15 +72,18 @@ function renderPowerUp() {
   }
 }
 
+//BONUS power up
+
 function checkPowerUp(car, powerUp) {
-  if(powerUp) {
-  const hasCollided = iscollide(car, powerUp);
-  if (hasCollided) {
-    player.speed = 12;
-    powerUp.style.display = "none";
+  if (powerUp) {
+    const hasCollided = iscollide(car, powerUp);
+    if (hasCollided) {
+      player.speed = 12;
+      powerUp.style.display = "none";
+    }
   }
 }
-}
+//FUNCTION while game is on
 
 function playGame() {
 
@@ -84,6 +92,8 @@ function playGame() {
   moveEnemy(car);
   renderPowerUp();
   checkPowerUp(car, document.querySelector('.power'));
+
+  //navigation of Arrow keys with if statements 
 
   if (player.start) {
 
@@ -116,11 +126,15 @@ function pressOff(a) {
   keys[a.key] = false;
 }
 
+//FUNCTION to endgame
+
 function endGame() {
   player.start = false;
   score.innerHTML = "Game Over<br> Score :" + player.score;
   startScreen.classList.remove("hide");
 }
+
+// FUNCTION to start the game 
 
 function start() {
   startScreen.classList.add("hide");
@@ -129,6 +143,9 @@ function start() {
   player.start = true;
   player.score = 0;
   for (i = 0; i < 5; i++) {
+
+    //creating div element for dividers
+
     let div = document.createElement("div");
     div.classList.add("line");
     div.y = i * 300;
@@ -136,11 +153,17 @@ function start() {
     gameArea.appendChild(div);
   }
   window.requestAnimationFrame(playGame);
+
+  //creating div element for user car
+
   let car = document.createElement("div");
   car.setAttribute("class", "car");
   gameArea.appendChild(car);
   player.x = car.offsetLeft;
   player.y = car.offsetTop;
+
+  //creating div element for enemy car
+
   for (i = 0; i < 3; i++) {
     let enemy = document.createElement("div");
     enemy.classList.add("enemy");
